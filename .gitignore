@@ -1,0 +1,3 @@
+*.exe
+Test/*.c
+Test/*.h
