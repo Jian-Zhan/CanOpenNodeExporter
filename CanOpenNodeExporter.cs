@@ -939,6 +939,9 @@ const CO_OD_entry_t CO_OD[");
             int datasize;
             if (entry.datatype == DataType.VISIBLE_STRING || entry.datatype == DataType.OCTET_STRING || entry.datatype == DataType.UNICODE_STRING)
                 datasize = entry.lengthofstring();
+	    else if (entry.objecttype == ObjectType.ARRAY && entry.nosubindexes > 0)
+	        // For arrays, use flags of the first subobject instead
+                datasize = entry.subobjects[0].sizeofdatatype();
             else
                 datasize = entry.sizeofdatatype();
 

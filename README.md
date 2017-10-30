@@ -2,3 +2,4 @@ CanOpenNodeExporter is C# program which exports CANopen EDS (Electronic Data She
 
 Modifications:
 * The flags of an array object will be assigned as the same as the its first subobject.
+* The datasize of an array object will be assigned as the same as the its first subobject.
