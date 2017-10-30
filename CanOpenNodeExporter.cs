@@ -863,6 +863,11 @@ const CO_OD_entry_t CO_OD[");
             byte flags = 0;
             byte mapping = 0; //mapping flags, if pdo is enabled
 
+	    // For arrays, use flags of the first subobject instead
+            if (od.objecttype == ObjectType.ARRAY && od.nosubindexes > 0) {
+                od = od.subobjects[0];
+	    }
+
             //aways return 0 for REC objects as CO_OD_getDataPointer() uses this to pickup the details
             if (od.objecttype == ObjectType.REC)
                 return 0;
